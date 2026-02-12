@@ -8,23 +8,16 @@ export default function Main() {
    
     
 
-  function handleSubmit(event) {
-        /**
-         * Like before, don't worry about this FormData stuff yet.
-         * Just use the newIngredient below to help you finish the
-         * challenge.
-         */
-        event.preventDefault()
-        const formData = new FormData(event.currentTarget)
+  function handleSubmit(formData) {
+      
         const newIngredient = formData.get("ingredient")
         setIngredients([...ingredients, newIngredient])
-        event.currentTarget.reset()
       
     }
     
     return (
         <main>
-            <form onSubmit={handleSubmit} className="add-ingredient-form">
+            <form action={handleSubmit} className="add-ingredient-form">
                 <input 
                     type="text"
                     placeholder="e.g. oregano"
